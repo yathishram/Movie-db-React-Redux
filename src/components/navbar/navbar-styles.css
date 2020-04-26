@@ -1,0 +1,23 @@
+.header {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+}
+
+.container {
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar {
+  padding: 20px 0;
+}
+
+.nav-item {
+  text-transform: uppercase;
+}
+
+.navbar-brand {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 2em;
+}
