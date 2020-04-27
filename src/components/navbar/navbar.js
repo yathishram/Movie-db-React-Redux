@@ -5,21 +5,21 @@ import "./navbar-styles.css";
 const NavBar = () => {
   return (
     <header className="header">
-      <Container>
-        <Navbar className="navbar" bg="transparent" expand="lg">
-          <Navbar.Brand href="/" className="navbar-brand" style={{ color: "#130c1d" }}>
-            React-Bootstrap
+      <Container fluid className="nav-cont">
+        <Navbar className="navbar" bg="" expand="lg">
+          <Navbar.Brand href="/" className="navbar-brand" style={{ color: "#f4b942" }}>
+            WHATCH ME!
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-lg-auto">
-              <Nav.Link className="nav-item" href="/" style={{ color: "#130c1d" }}>
+              <Nav.Link className="nav-item active" href="/" style={{ color: "#f4b942" }}>
                 Home
               </Nav.Link>
-              <Nav.Link className="nav-item" href="/movies" style={{ color: "#130c1d" }}>
+              <Nav.Link className="nav-item" href="/movies" style={{ color: "#f4b942" }}>
                 Movies
               </Nav.Link>
-              <Nav.Link className="nav-item" href="/series" style={{ color: "#130c1d" }}>
+              <Nav.Link className="nav-item" href="/series" style={{ color: "#f4b942" }}>
                 TV Series
               </Nav.Link>
             </Nav>
