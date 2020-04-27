@@ -6,14 +6,29 @@ import MoviesPreview from "../movies-preview/moviesPreview";
 
 class SimilarMovies extends Component {
   state = {
+    id: this.props.id,
     result: null,
   };
-  componentDidMount() {
+
+  fetchData = (movieId, api_key) => {
     axios
-      .get(`https://api.themoviedb.org/3/movie/${this.props.id}/similar?api_key=${api_key}&language=en-US&page=1`)
+      .get(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${api_key}&language=en-US&page=1`)
       .then((data) => this.setState({ result: data.data.results }))
       .catch((err) => console.log(err));
+  };
+  componentDidMount() {
+    this.fetchData(this.state.id, api_key);
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.id !== this.props.id) {
+      this.setState({
+        id: this.props.id,
+      });
+      this.fetchData(this.state.id, api_key);
+    }
+  }
+
   render() {
     console.log(this.state.result);
     if (this.state.result !== null) {

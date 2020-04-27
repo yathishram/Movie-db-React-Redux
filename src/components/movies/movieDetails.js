@@ -7,62 +7,61 @@ import SimilarMovies from "../similarMovies/similarmovies";
 
 class MovieDetails extends Component {
   state = {
-    background_image: "",
-    genres: null,
-    id: "",
-    title: "",
-    overview: "",
-    release_date: "",
-    runtime: "",
-    vote_average: "",
-    vote_count: "",
-    image: "",
+    id: this.props.match.params.movieId,
+    result: null,
   };
-  componentDidMount() {
+  fetchData = (movieId, api_key) => {
     axios
-      .get(`https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}?api_key=${api_key}&language=en-US`)
+      .get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${api_key}&language=en-US`)
       .then((data) =>
         this.setState({
-          background_image: data.data.backdrop_path,
-          genres: data.data.genres,
-          id: data.data.id,
-          title: data.data.title,
-          overview: data.data.overview,
-          release_date: data.data.release_date,
-          runtime: data.data.runtime,
-          vote_average: data.data.vote_average,
-          vote_count: data.data.vote_count,
-          image: data.data.poster_path,
+          result: data.data,
         })
       )
       .catch((err) => err.message);
+  };
+  componentDidMount() {
+    this.fetchData(this.state.id, api_key);
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.id !== this.props.match.params.movieId) {
+      this.setState({
+        id: this.props.match.params.movieId,
+      });
+      this.fetchData(this.state.id, api_key);
+    }
+  }
+
   render() {
-    if (this.state.id !== "") {
+    if (this.state.result !== null) {
       return (
         <>
           <Container className="movieContainer">
             <Row>
               <Col md={6} lg={5}>
-                <Image src={image_url_dets + this.state.image} className="shadow p-3 mb-5 bg-white rounded" />
+                <Image
+                  src={image_url_dets + this.state.result.poster_path}
+                  className="shadow p-3 mb-5 bg-white rounded"
+                />
               </Col>
               <Col md={6} lg={6} className="justify-content-left">
-                <h3 className="display-4">{this.state.title}</h3>
-                <p className="text-muted">Overview: {this.state.overview}</p>
+                <h3 className="display-4">{this.state.result.title}</h3>
+                <p className="text-muted">Overview: {this.state.result.overview}</p>
                 <p>
                   {" "}
                   Genre:
-                  {this.state.genres.map((genre) => {
+                  {this.state.result.genres.map((genre) => {
                     return <span key={genre.id}> &#10022; {genre.name} </span>;
                   })}
                 </p>
-                <p>Release Date: {this.state.release_date}</p>
-                <p>Runtime: {this.state.runtime}mins</p>
+                <p>Release Date: {this.state.result.release_date}</p>
+                <p>Runtime: {this.state.result.runtime}mins</p>
               </Col>
             </Row>
           </Container>
           <Container>
-            <SimilarMovies id={this.state.id} />
+            <SimilarMovies id={this.state.result.id} />
           </Container>
         </>
       );
