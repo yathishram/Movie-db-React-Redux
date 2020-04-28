@@ -6,6 +6,7 @@ import NavBar from "./components/navbar/navbar";
 import MovieDetails from "./components/movies/movieDetails";
 import MovieList from "./components/movies-list/movieList";
 import SeriesList from "./components/series-list/seriesList";
+import SeriesDetails from "./components/series/seriesDetails";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/movie/:movieId" component={MovieDetails} />
           <Route exact path="/movies" component={MovieList} />
           <Route exact path="/series" component={SeriesList} />
+          <Route path="/series/:seriesId" component={SeriesDetails} />
         </Switch>
       </div>
     </BrowserRouter>

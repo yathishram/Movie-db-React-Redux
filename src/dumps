@@ -1,0 +1,6 @@
+<p>
+                Genre:
+                {genres.map((genre) => {
+                  return <span key={genre.id}> &#10022; {genre.name} </span>;
+                })}
+              </p>
