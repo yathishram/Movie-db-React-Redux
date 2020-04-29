@@ -21,7 +21,7 @@ const SeriesList = () => {
   if (loading) {
     return (
       <>
-        <Container className="container-movielist text-center">
+        <Container className="container-serieslist text-center">
           <h4 className="display-4">Loading!</h4>
         </Container>
       </>

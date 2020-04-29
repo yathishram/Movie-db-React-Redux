@@ -4,9 +4,9 @@ import { Switch, BrowserRouter, Route } from "react-router-dom";
 import Homepage from "./pages/homepage";
 import NavBar from "./components/navbar/navbar";
 import MovieDetails from "./components/movies/movieDetails";
-import MovieList from "./components/movies-list/movieList";
-import SeriesList from "./components/series-list/seriesList";
 import SeriesDetails from "./components/series/seriesDetails";
+import MoviesPage from "./pages/moviespage";
+import SeriesPage from "./pages/seriesPage";
 
 function App() {
   return (
@@ -16,8 +16,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route path="/movie/:movieId" component={MovieDetails} />
-          <Route exact path="/movies" component={MovieList} />
-          <Route exact path="/series" component={SeriesList} />
+          <Route exact path="/movies" component={MoviesPage} />
+          <Route exact path="/series" component={SeriesPage} />
           <Route path="/series/:seriesId" component={SeriesDetails} />
         </Switch>
       </div>
