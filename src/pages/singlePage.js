@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import { Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import MovieList from "../components/movies-list/movieList";
 import SearchBar from "../components/search/searchBar-movies";
 import SearchBarSeries from "../components/search/searchBar-Series";
@@ -11,10 +11,8 @@ const SinglePage = ({ match, history }) => {
   if (match.params.pageName === "movies") {
     return (
       <>
-        <Container className="py-7 my-7">
-          <Row>
-            <SearchBar />
-          </Row>
+        <Container>
+          <SearchBar />
         </Container>
         <Container>
           <MovieList />
@@ -32,7 +30,7 @@ const SinglePage = ({ match, history }) => {
         </Container>
       </>
     );
-  } else if (match.params.pageName === "popularmovies") {
+  } else if (match.params.pageName === "topmovies") {
     return (
       <Container>
         <TopMovieList />

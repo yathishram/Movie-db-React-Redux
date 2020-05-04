@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Row, InputGroup, FormControl, Button } from "react-bootstrap";
+import { Row, Form, FormControl } from "react-bootstrap";
 import { api_key } from "../../config";
 import debounce from "lodash/debounce";
 import SeriesPreview from "../series-preview/seriesPreview";
@@ -32,17 +32,9 @@ class SearchBarSeries extends Component {
     return (
       <>
         <div className="search-container">
-          <InputGroup className="text-input w-25">
-            <FormControl
-              placeholder="Search Series"
-              aria-label="Search series"
-              aria-describedby="basic-addon2"
-              onChange={this.onChange}
-            />
-            <InputGroup.Append>
-              <Button variant="outline-primary">Search</Button>
-            </InputGroup.Append>
-          </InputGroup>
+          <Form inline>
+            <FormControl type="text" placeholder="Search Series" className="mr-sm-2" onChange={this.onChange} />
+          </Form>
         </div>
 
         <Row className="py-3 my-4">

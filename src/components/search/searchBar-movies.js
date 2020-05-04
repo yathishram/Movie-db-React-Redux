@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Row, InputGroup, FormControl, Button } from "react-bootstrap";
+import { Row, Form, FormControl, Button } from "react-bootstrap";
 import { api_key } from "../../config";
 import { withRouter } from "react-router-dom";
 import debounce from "lodash/debounce";
@@ -29,21 +29,17 @@ class SearchBar extends Component {
   };
 
   render() {
+    const { history } = this.props;
     console.log(this.state.result);
     return (
       <>
         <div className="search-container">
-          <InputGroup className="text-input w-25">
-            <FormControl
-              placeholder="Search Movies"
-              aria-label="Search Movies"
-              aria-describedby="basic-addon2"
-              onChange={this.onChange}
-            />
-            <InputGroup.Append>
-              <Button variant="outline-primary">search</Button>
-            </InputGroup.Append>
-          </InputGroup>
+          <Form inline>
+            <FormControl type="text" placeholder="Search Movies" className="mr-sm-2" onChange={this.onChange} />
+            <Button variant="outline-success" onClick={() => history.push("/topmovies")}>
+              Top Rated
+            </Button>
+          </Form>
         </div>
 
         <Row className="py-3 my-4">
