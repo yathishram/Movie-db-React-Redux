@@ -1,5 +1,4 @@
 import React from "react";
-import "./header-styles.css";
 //import MovieImage from "./media/movieimage.jpg";
 import { Container } from "react-bootstrap";
 

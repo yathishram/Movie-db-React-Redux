@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./series-styles.css";
 import axios from "axios";
 import { api_key, image_url_dets } from "../../config";
 import { Container, Row, Col, Image } from "react-bootstrap";
@@ -23,7 +22,7 @@ const SeriesDetails = ({ match }) => {
   //console.log(result);
   if (loading) {
     return (
-      <Container className="seriesContainer text-center">
+      <Container className="content-container text-center">
         <h3>Loading!!</h3>
       </Container>
     );

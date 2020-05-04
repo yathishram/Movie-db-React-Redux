@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./movie-styles.css";
 import axios from "axios";
 import { api_key, image_url_dets } from "../../config";
 import { Container, Row, Col, Image } from "react-bootstrap";
@@ -22,14 +21,14 @@ const MovieDetails = ({ match }) => {
   //console.log(result);
   if (loading) {
     return (
-      <Container className="movieContainer text-center">
+      <Container className="content-container text-center">
         <h3>Loading!!</h3>
       </Container>
     );
   } else {
     return (
       <>
-        <Container className="movieContainer">
+        <Container className="content-container">
           <Row>
             <Col md={6} lg={5}>
               <Image src={image_url_dets + result.poster_path} className="shadow p-3 mb-5 bg-white rounded" />

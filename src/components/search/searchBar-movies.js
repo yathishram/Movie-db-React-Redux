@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Row, InputGroup, FormControl, Button } from "react-bootstrap";
 import { api_key } from "../../config";
-import "./search-styles.css";
+import { withRouter } from "react-router-dom";
 import debounce from "lodash/debounce";
 import MoviesPreview from "../movies-preview/moviesPreview";
 
@@ -32,7 +32,7 @@ class SearchBar extends Component {
     console.log(this.state.result);
     return (
       <>
-        <div className="text-container">
+        <div className="search-container">
           <InputGroup className="text-input w-25">
             <FormControl
               placeholder="Search Movies"
@@ -54,4 +54,4 @@ class SearchBar extends Component {
   }
 }
 
-export default SearchBar;
+export default withRouter(SearchBar);

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Spinner, Button } from "react-bootstrap";
 import { api_key } from "../../config";
 import axios from "axios";
-import SeriesPreview from "../series-preview/seriesPreview";
+import MoviesPreview from "../movies-preview/moviesPreview";
 
-const SeriesList = () => {
+const TopMovieList = () => {
   const [result, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [pageNumber, setPageNumber] = useState(1);
@@ -13,7 +13,7 @@ const SeriesList = () => {
     const fetchData = async () => {
       setLoading(true);
       const res = await axios.get(
-        `https://api.themoviedb.org/3/tv/popular?api_key=${api_key}&language=en-US&page=${pageNumber}`
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}&language=en-US&page=${pageNumber}`
       );
       setResults(res.data.results);
       setLoading(false);
@@ -42,13 +42,15 @@ const SeriesList = () => {
       </>
     );
   } else {
+    console.log(result);
+
     return (
       <>
-        <Container className="container-movielist text-center">
-          <h4 className="display-4">Popular Series</h4>
+        <Container className="container-list text-center">
+          <h4 className="display-4">Top Rated Movies</h4>
           <Row className="py-3 my-4">
-            {result.map((series) => (
-              <SeriesPreview key={series.id} series={series} />
+            {result.map((movie) => (
+              <MoviesPreview key={movie.id} movie={movie} />
             ))}
           </Row>
           <Button variant="outline-primary" className="p-3 m-3" onClick={() => previousPageClick(pageNumber)}>
@@ -63,4 +65,4 @@ const SeriesList = () => {
   }
 };
 
-export default SeriesList;
+export default TopMovieList;

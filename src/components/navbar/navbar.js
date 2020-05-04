@@ -1,12 +1,11 @@
 import React from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
-import "./navbar-styles.css";
 
 const NavBar = () => {
   return (
     <header className="header">
-      <Container fluid className="nav-cont">
-        <Navbar className="navbar" bg="" expand="lg">
+      <Container fluid className="nav-container">
+        <Navbar className="navbar" bg="" expand="lg" style={{ color: "#ed254e" }}>
           <Navbar.Brand href="/" className="navbar-brand" style={{ color: "#f4b942" }}>
             WHATCH ME!
           </Navbar.Brand>

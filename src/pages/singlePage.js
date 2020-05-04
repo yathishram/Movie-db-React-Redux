@@ -1,16 +1,20 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
+import { Container, Row } from "react-bootstrap";
 import MovieList from "../components/movies-list/movieList";
 import SearchBar from "../components/search/searchBar-movies";
 import SearchBarSeries from "../components/search/searchBar-Series";
 import SeriesList from "../components/series-list/seriesList";
+import TopMovieList from "../components/toprated/topRatedMovies";
 
-const SinglePage = ({ match }) => {
+const SinglePage = ({ match, history }) => {
   if (match.params.pageName === "movies") {
     return (
       <>
-        <Container>
-          <SearchBar />
+        <Container className="py-7 my-7">
+          <Row>
+            <SearchBar />
+          </Row>
         </Container>
         <Container>
           <MovieList />
@@ -28,6 +32,12 @@ const SinglePage = ({ match }) => {
         </Container>
       </>
     );
+  } else if (match.params.pageName === "popularmovies") {
+    return (
+      <Container>
+        <TopMovieList />
+      </Container>
+    );
   } else {
     return (
       <Container>
@@ -37,4 +47,4 @@ const SinglePage = ({ match }) => {
   }
 };
 
-export default SinglePage;
+export default withRouter(SinglePage);
