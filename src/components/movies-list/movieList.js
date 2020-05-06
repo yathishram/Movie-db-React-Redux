@@ -41,8 +41,6 @@ const MovieList = () => {
       </>
     );
   } else {
-    console.log(result);
-
     return (
       <>
         <Container className="container-movielist text-center">

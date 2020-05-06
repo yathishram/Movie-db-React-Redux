@@ -30,7 +30,6 @@ class SearchBar extends Component {
 
   render() {
     const { history } = this.props;
-    console.log(this.state.result);
     return (
       <>
         <div className="search-container">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Spinner } from "react-bootstrap";
 import { api_key } from "../../config";
 import axios from "axios";
 import MoviesPreview from "../movies-preview/moviesPreview";
@@ -23,7 +23,7 @@ const SimilarMovies = ({ id }) => {
   if (loading) {
     return (
       <Container>
-        <h3 className="display-5">Loading</h3>
+        <Spinner animation="border" />
       </Container>
     );
   } else {

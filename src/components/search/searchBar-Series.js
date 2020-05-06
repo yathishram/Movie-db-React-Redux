@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Row, Form, FormControl } from "react-bootstrap";
+import { Row, Form, FormControl, Button } from "react-bootstrap";
 import { api_key } from "../../config";
+import { withRouter } from "react-router-dom";
 import debounce from "lodash/debounce";
 import SeriesPreview from "../series-preview/seriesPreview";
 
@@ -28,12 +29,15 @@ class SearchBarSeries extends Component {
   };
 
   render() {
-    console.log(this.state.result);
+    const { history } = this.props;
     return (
       <>
         <div className="search-container">
           <Form inline>
             <FormControl type="text" placeholder="Search Series" className="mr-sm-2" onChange={this.onChange} />
+            <Button variant="outline-success" onClick={() => history.push("/topseries")}>
+              Top Rated
+            </Button>
           </Form>
         </div>
 
@@ -45,4 +49,4 @@ class SearchBarSeries extends Component {
   }
 }
 
-export default SearchBarSeries;
+export default withRouter(SearchBarSeries);

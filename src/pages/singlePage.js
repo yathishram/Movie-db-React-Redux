@@ -6,7 +6,7 @@ import SearchBar from "../components/search/searchBar-movies";
 import SearchBarSeries from "../components/search/searchBar-Series";
 import SeriesList from "../components/series-list/seriesList";
 import TopMovieList from "../components/toprated/topRatedMovies";
-
+import TopSeriesList from "../components/toprated/topRatedSeries";
 const SinglePage = ({ match, history }) => {
   if (match.params.pageName === "movies") {
     return (
@@ -34,6 +34,12 @@ const SinglePage = ({ match, history }) => {
     return (
       <Container>
         <TopMovieList />
+      </Container>
+    );
+  } else if (match.params.pageName === "topseries") {
+    return (
+      <Container>
+        <TopSeriesList />
       </Container>
     );
   } else {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Spinner } from "react-bootstrap";
 import axios from "axios";
 import MoviesPreview from "../movies-preview/moviesPreview";
 import SeriesPreview from "../series-preview/seriesPreview";
@@ -21,7 +21,6 @@ class HomepageContent extends Component {
       .catch((err) => console.log(err));
   }
   render() {
-    console.log(this.state.movies);
     if (this.state.movies !== null && this.state.seriesList !== null) {
       return (
         <Container className="text-center py-3 my-5 container">
@@ -46,7 +45,7 @@ class HomepageContent extends Component {
     } else {
       return (
         <Container>
-          <h3>Loading</h3>
+          <Spinner animation="border" />
         </Container>
       );
     }

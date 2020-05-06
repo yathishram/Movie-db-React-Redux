@@ -4,7 +4,6 @@ import { Col, Image } from "react-bootstrap";
 import { image_url } from "../../config";
 
 const MoviesPreview = ({ movie, history, match, location }) => {
-  //console.log(location);
   return (
     <>
       <Col md={6} lg={3} className="text-center">

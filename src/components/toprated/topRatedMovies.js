@@ -42,8 +42,6 @@ const TopMovieList = () => {
       </>
     );
   } else {
-    console.log(result);
-
     return (
       <>
         <Container className="container-list text-center">

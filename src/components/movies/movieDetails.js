@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { api_key, image_url_dets } from "../../config";
-import { Container, Row, Col, Image } from "react-bootstrap";
+import { Container, Row, Col, Image, Spinner } from "react-bootstrap";
 import SimilarMovies from "../similarMovies/similarmovies";
 
 const MovieDetails = ({ match }) => {
@@ -18,11 +18,11 @@ const MovieDetails = ({ match }) => {
     };
     fetchData(match.params.movieId);
   }, [match.params.movieId]);
-  //console.log(result);
+
   if (loading) {
     return (
       <Container className="content-container text-center">
-        <h3>Loading!!</h3>
+        <Spinner animation="border" />
       </Container>
     );
   } else {
